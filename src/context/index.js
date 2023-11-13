@@ -10,9 +10,9 @@ const AppProvider = (props) => {
     const login = async (data) => {
         setUser(data);
         if (data.role === "Organization") {
-            navigate("/", { replace: true });
+            navigate("/dashboard", { replace: true });
         } else {
-            navigate("/", { replace: true });
+            navigate("/findAJob", { replace: true });
         }
     };
 

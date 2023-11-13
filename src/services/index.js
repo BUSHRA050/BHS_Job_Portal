@@ -4,7 +4,7 @@ import axios from "axios";
 // let baseUrl = "https://web-production-ab509.up.railway.app/api/";
 let baseUrl = "https://bhs-server.vercel.app/api/"
 
-
+ 
 const api = async (path, params, method) => {
     let options;
     options = {

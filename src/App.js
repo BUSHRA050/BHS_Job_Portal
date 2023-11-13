@@ -4,7 +4,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AppFooter from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import Login from "./containers/Login";
-import Register from "./containers/Register"
+import Register from "./containers/Register";
+import ContactUs from "./containers/ContactUs";
+import AboutUs from "./containers/AboutUs";
+import FindAJob from "./containers/FindAJob";
+import Dashboard from "./containers/Dashboard";
 import AppProvider from "./context"
 import { SnackbarProvider } from "notistack";
 import { useRef } from "react";
@@ -41,7 +45,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/resetPassword" element={<ResetPassword />} />
               <Route path="/register" element={<Register />} />
-              {/* <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/contactUs" element={<ContactUs />} />
               <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/findAJob" element={<FindAJob />} />
               <Route path="/dashboard" element={<ProtectedLayout />}>
@@ -49,7 +53,7 @@ function App() {
                 <Route path="/dashboard/pricingPlan" element={<PlanPayment />} />
                 <Route path="/dashboard/resume/:id" element={<Resume />} />
 
-              </Route> */}
+              </Route>
             </Routes>
             <AppFooter />
           </div>

@@ -34,17 +34,17 @@ const navItems = [
   {
     id: 2,
     name: "Find a Job",
-    path: "/"
+    path: "/findAJob"
   },
   {
     id: 3,
     name: "Contact",
-    path: "/"
+    path: "/contactUs"
   },
   {
     id: 4,
     name: "About",
-    path: "/"
+    path: "/aboutUs"
   },
 ];
 
