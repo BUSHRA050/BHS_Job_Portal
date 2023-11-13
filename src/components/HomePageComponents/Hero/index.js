@@ -28,8 +28,8 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
             logo: "https://folio3.com/wp-content/themes/folio3/images/logo.png",
         },
         {
-            name: "Zones, LLC",
-            logo: "https://media.zones.com/images/new/zones-logo.png",
+            name: "InfoSys",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1280px-Infosys_logo.svg.png",
         },
         {
             name: "Creative Souls",
@@ -40,8 +40,8 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
             logo: "https://zeptosystems.com/wp-content/uploads/2021/11/zepto-large.png",
         },
         {
-            name: "arbisoft",
-            logo: "https://careerjobs1737.com.pk/wp-content/uploads/2022/09/Arbisoft-Pakistan-Logo.jpg",
+            name: "google",
+            logo: "https://blog.hubspot.com/hubfs/image8-2.jpg",
         }
     ]
 
