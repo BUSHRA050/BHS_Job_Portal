@@ -1,13 +1,16 @@
-import { Box, Container, Grid, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, MenuItem, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import useStyles from "../../../styles";
 import SearchableDropdown from "../../SearchableDropwdown";
 import TextInput from "../../TextInput";
 import IconButton from "../../IconButton";
-import { Search, Sell } from "@mui/icons-material";
+import { Search, Sell, Translate } from "@mui/icons-material";
 import { primaryColor } from "../../../constants/Colors";
 import HeroCompanyCard from "./HeroCompanyCards";
 import "../../../styles/main.css"
+
+import { loginImage,registerImage } from "../../../constants/Images";
+
 
 const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchValue, handleSearch, experienceData }) => {
     const classes = useStyles();
@@ -32,8 +35,8 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
             logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1280px-Infosys_logo.svg.png",
         },
         {
-            name: "Creative Souls",
-            logo: "https://pbs.twimg.com/profile_images/605474633475715072/gHWKJMnA_400x400.png",
+            name: "Amazon",
+            logo: "https://th.bing.com/th/id/R.7ce7c06b3cd3bd6a37ab8468043dbb93?rik=nTM5fQIazwqKFw&pid=ImgRaw&r=0",
         },
         {
             name: "Zepto Systems",
@@ -75,9 +78,135 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
 
 
     return (
-        <Box sx={{ marginTop: "10px", height: "600px", padding: "20px 0px 20px 50px", position: "relative" }}>
-            <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
+        <Box sx={{ marginTop: "10px", minHeight: "100vh", padding: "20px 0px 20px 50px", position: "relative",}}>
+            {/* <Grid>
+                <Grid container spacing={3}>
+                    <Grid xs={12} md={6}>
+                    <img src={loginImage} style={{ width: "90%" }} />
+                    </Grid>
+                    <Grid xs={12} md={6}>
+                    <Typography variant="h6" className={classes.heroSubHeading}>
+                            Build Your Personal
+                        </Typography>
+                        <Typography variant="h6" className={classes.heroHeading}>
+                           Account Profile
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid> */}
+               <div className="hero-slider d-none">
+            <div className="container">
+                <div className="row align-items-center">
+                    <div className="col-lg-6">
+                        <div
+                            className="hero-img scene mt-10 mt-lg-0"
+                            id="scene"
+                            // ref={sceneEl}
+                        >
+                            <div data-depth="0.2">
+                                <img
+                                    src={loginImage}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="hero-slide-content">
+                            <h2
+                                className="title animated"
+                                // dangerouslySetInnerHTML={{ __html: data.title }}
+                            ></h2>
+                            <p className="intro-desc">
+                                Unlock the power to create a compelling resume
+                                with our intuitive website. Tailor your
+                                professional journey using our diverse templates
+                                and user-friendly tools. Elevate your chances of
+                                success by harnessing the ability to
+                                effortlessly create a standout resume.
+                            </p>
+                            {/* <Button
+                                classOption="btn btn-lg animated delay1 btn-orange me-4 mb-3 mb-sm-0 p-2"
+                                text="Create Resume"
+                                path="/login"
+                            /> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
+
+          
+           <div className="hero-section text-center" >
+             <div className="container">
+               <div className="row d-flex justify-content-center align-items-center">
+                   <div className="col-md-6">
+                    <div className="login__image">
+                      <img src={loginImage} alt={loginImage} className="img-fluid"/>
+                    </div>
+                   </div>
+                   <div className="col-md-6">
+                   <div className="hero_section_content">
+                            <h1
+                                className="text-start mb-3"
+                                style={{fontSize:"3.4rem"}}
+                                // dangerouslySetInnerHTML={{ __html: data.title }}
+                            >
+                                Build Your Professional <br/> Account Profile
+                            </h1>
+                            <p className="intro-desc  text-start mb-3">
+                                Unlock the power to create a compelling resume
+                                with our intuitive website. Tailor your
+                                professional journey using our diverse templates
+                                and user-friendly tools. Elevate your chances of
+                                success by harnessing the ability to
+                                effortlessly create a standout resume.
+                            </p>
+                            <div className="resume_button text-start  ">
+                            <Button className="resume-button " style={{backgroundColor:"#f2994a", color:"white"}} >
+                                  Create Resume
+                             </Button>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+             </div>
+           </div>
+           <div className="hero-section2 text-center mb-5" style={{marginTop:"-4rem"}}>
+             <div className="container">
+               <div className="row d-flex justify-content-center align-items-center">
+                   <div className="col-md-6">
+                   <div className="hero_section_content">
+                            <h1
+                                className="text-start mb-3"
+                                style={{fontSize:"3.4rem"}}
+                                // dangerouslySetInnerHTML={{ __html: data.title }}
+                            >
+                                Find The Job Of <br/> Your <small className="fw-bold " style={{color:"#f2994a", fontSize:"3.4rem"}}>Dream</small>
+                            </h1>
+                            <p className="intro-desc  text-start mb-3">
+                            Find your New Job Today! New Job Postings
+                                Everyday just for you, browser the job you want
+                                and apply whatever you want
+                            </p>
+                            <div className="resume_button text-start  ">
+                            <Button className="resume-button bg-dark text-white">
+                                  Learn More
+                             </Button>
+                            </div>
+                        </div>  
+                   </div>
+                   <div className="col-md-6">
+                   <div className="login__image">
+                      <img src={registerImage} alt={registerImage} className="img-fluid w-75"/>
+                    </div>
+                 
+                   </div>
+               </div>
+             </div>
+           </div>
+            <Grid container spacing={3} >
+                <Grid item xs={12} md={6} sx={{marginLeft:"25%" }}>
                     <Box component="div" sx={{ width: "90%" }}>
 
                         <Typography variant="h1" className={classes.heroHeading}>
@@ -96,7 +225,7 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                                 onChange={(e) => handleSearchValue(e)}
                                 name="keyword"
                                 className={classes.heroInput} placeholder="Keyword e.g. (Job Title, Description, Tags)" />
-                            <Box component="div" sx={{ marginTop: "10px" }}>
+                            <Box component="div" sx={{ marginTop: "10px", }}>
                                 <TextInput
                                     value={searchValue.location}
                                     onChange={(e) => handleSearchValue(e)}
@@ -150,10 +279,10 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                         </Typography>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                     <Box sx={{ display: { xs: 'none', md: "block" } }} className="heroAnimatedWrapper">
                     </Box>
-                </Grid>
+                </Grid> */}
             </Grid>
             <Container maxWidth="xl">
                 <Grid container spacing={2} marginTop={2} sx={{ display: { xs: 'none', md: 'flex' }, position: "absolute", bottom: "-140px", left: "0px", right: "0px", width: "80%", margin: "0 auto" }}>

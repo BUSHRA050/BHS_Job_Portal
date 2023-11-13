@@ -4,11 +4,11 @@ import useStyles from "../../../../styles"
 const HeroCompanyCard = ({item}) =>{
     const classes = useStyles();
     return(
-        <Box component="div" className={classes.HeroCompanyCard}>
-            <Typography>
+        <Box component="div" className="bg-white text-center p-3">
+            <Typography variant="h6" style={{fontSize:"16px"}} >
                 {item.name}
             </Typography>
-            <img src={item.logo} alt={item.name} style={{width:"80px",height:"80px",marginTop:"10px"}} />
+            <img src={item.logo} alt={item.name} style={{width:"80px"}} />
         </Box>
     )
 }
