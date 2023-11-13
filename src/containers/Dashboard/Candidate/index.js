@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material"
 import { useState } from "react"
-import { priceColor } from "../../../constants/Colors"
+import { priceColor, primaryColor } from "../../../constants/Colors"
 import useStyles from "../../../styles"
 import { CandidateSidebar, CandidateDashboard, Resume, AppliedJobs, EditProfile, Favourite } from "./components"
 
@@ -12,7 +12,7 @@ const Candidate = () => {
     return (
         <Box component="div">
             <Box component="div" sx={{
-                background: priceColor,
+                background: primaryColor,
                 padding: "20px",
             }}>
                 <Container >
