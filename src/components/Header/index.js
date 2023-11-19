@@ -87,7 +87,7 @@ export default function Header(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}> 
       <img src={logo} alt="BHS" style={{ width: "40%", marginTop: "10px" }} />
       <Divider />
       <List>

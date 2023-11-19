@@ -44,12 +44,12 @@ const CandidateDashboard = () => {
     }
 
     return (
-        <Box component="div">
+        <Box component="div" >
             <Box component="div" sx={{
                 border: `1px solid ${primaryBorderColor}`,
                 padding: "25px"
             }}>
-                <Grid container justifyContent="space-between">
+                <Grid container justifyContent="space-between" sx={{width:"100%"}}>
                     <Grid item xs={12} md={4}>
                         <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
                             <img src={user?.userImage} style={{ width: "40%", height: "100px" }} />

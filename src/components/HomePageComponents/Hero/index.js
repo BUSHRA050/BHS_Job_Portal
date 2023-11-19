@@ -185,27 +185,81 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                                 Find The Job Of <br/> Your <small className="fw-bold " style={{color:"#f2994a", fontSize:"3.4rem"}}>Dream</small>
                             </h1>
                             <p className="intro-desc  text-start mb-3">
-                            Find your New Job Today! New Job Postings
-                                Everyday just for you, browser the job you want
-                                and apply whatever you want
+                            BHS provides a platform for both job seekers and organizations to fulfill their needs.The portal provides employment opportunities to the job seekers and reduces the effort of searching job of desired position.It facilitates the organization by filtering all the appropriate resumes according to the job description which eventually minimizes human resource work and screening process.
                             </p>
-                            <div className="resume_button text-start  ">
-                            <Button className="resume-button bg-dark text-white">
-                                  Learn More
-                             </Button>
-                            </div>
                         </div>  
+                        <Grid container spacing={2} marginTop={2}>
+                        <Grid item xs={12} md={6}>
+                            <TextInput
+                                value={searchValue.keyword}
+                                onChange={(e) => handleSearchValue(e)}
+                                name="keyword"
+                                className={classes.heroInput} placeholder="Keyword e.g. (Job Title, Description, Tags)" />
+                            <Box component="div" sx={{ marginTop: "10px", }}>
+                                <TextInput
+                                    value={searchValue.location}
+                                    onChange={(e) => handleSearchValue(e)}
+                                    name="location"
+                                    className={classes.heroInput} placeholder="Ex: Karachi" />
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <TextField
+                                isNumber
+                                onChange={(e) => handleSearchValue(e)}
+                                className={classes.heroInput}
+                                id="experience"
+                                value={searchValue?.experience}
+                                select
+                                name="experience"
+                                label="Select Experience"
+                            >
+                                {experienceData?.map((item) => {
+                                    return <MenuItem value={item?.value}>{item.label}</MenuItem>;
+                                })}
+                            </TextField>
+                            <Box component="div" sx={{ marginTop: "10px" }}>
+                                <TextField
+                                    isNumber
+                                    onChange={(e) => handleSearchValue(e)}
+                                    className={classes.heroInput}
+                                    id="jobDescription"
+                                    value={searchValue?.jobDescription}
+                                    select
+                                    name="jobDescription"
+                                    label="Select Job Description"
+                                >
+                                    {jobDescriptionData?.map((item) => {
+                                        return <MenuItem value={item?.value}>{item.label}</MenuItem>;
+                                    })}
+                                </TextField>
+                            </Box>
+                            
+                        </Grid>
+                        <IconButton onClick={handleSearch} className={classes.heroBtn} icon={<Search />}>
+                        Search
+                    </IconButton>
+                    <Box component="div" sx={{ marginTop: "40px", display: "flex", alignItems: "center" }}>
+                        <Sell sx={{ color: primaryColor }} />
+                        <Typography variant="h3" className={classes.heroSubHeading}>
+                            Trending Keywords :
+                        </Typography>
+                        <Typography variant="h3" className={classes.heroSubHeading} sx={{ marginTop: "0px", marginLeft: "5px" }}>
+                            {KeywordArray}
+                        </Typography>
+                    </Box>
+                    </Grid>
                    </div>
                    <div className="col-md-6">
                    <div className="login__image">
-                      <img src={registerImage} alt={registerImage} className="img-fluid w-75"/>
+                      <img src={registerImage} alt={registerImage} className="img-fluid w-90"/>
                     </div>
                  
                    </div>
                </div>
              </div>
            </div>
-            <Grid container spacing={3} >
+            <Grid container spacing={3} className="d-none" >
                 <Grid item xs={12} md={6} sx={{marginLeft:"25%" }}>
                     <Box component="div" sx={{ width: "90%" }}>
 

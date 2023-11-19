@@ -6,10 +6,12 @@ import { AppContext } from "../../../../../context"
 import { useContext, useState } from "react"
 import { useLayoutEffect } from "react"
 import { getResume, getProfileScore } from "../../../../../services/UserDashboard"
+import { useNavigate } from 'react-router-dom';
+
 
 const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProfileScore }) => {
     const { user,logout } = useContext(AppContext)
-
+    const navigate=useNavigate()
     const classes = useStyles()
     const routes = [
         {
@@ -41,7 +43,25 @@ const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProf
             label: "Applied Jobs",
             path: "appliedJobs",
             icon: "check_box"
-        }
+        },
+        {
+            id: 6,
+            label: "Find a Job",
+            path: "/findAJob",
+            icon: "work"
+          },
+          {
+            id: 7,
+            label: "Contact",
+            path: "/contactUs",
+            icon: "favorite"
+          },
+          {
+            id: 8,
+            label: "About",
+            path: "/aboutUs",
+            icon: "info"
+          },
     ]
 
     useLayoutEffect(() => {
@@ -74,10 +94,19 @@ const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProf
         }
     }
 
+    const handlepath=(item)=>{
+        if (item=="/findAJob"|| item=="/contactUs"  || item =="/aboutUs") {
+            navigate(`${item}`)
+        }else{
+            setSelectedPage(item)
+
+        }
+
+    }
     return (
-        <Box component="div" sx={{ width: "80%" }}>
+        <Box component="" >
             <Box component="div" className={classes.sidebarContainer}>
-                <img src={user?.userImage} style={{ width: "100%", height: "300px" }} />
+                <img src={user?.userImage} style={{ width: "100%", height: "250px" }} />
                 <Box component="div" textAlign="center" marginTop="20px">
                     <Typography variant="h1" sx={{ fontSize: "22px !important", fontWeight: "400 !important" }}>
                         {user?.name}
@@ -110,7 +139,7 @@ const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProf
                                 return (
                                     <Box
                                         component="div"
-                                        onClick={() => setSelectedPage(item.path)}
+                                        onClick={() => handlepath(item.path)}
                                         sx={{
                                             display: "flex",
                                             alignItems: "center",

@@ -1,5 +1,5 @@
 export const primaryColor = "#f2994a";
-export const secondaryColor = '#f9f9f9';
+export const secondaryColor = '#fff5ec';
 export const headerColor = '#fff'
 export const textColor = '#343a40';
 export const textSecondaryColor = '#6c757d';

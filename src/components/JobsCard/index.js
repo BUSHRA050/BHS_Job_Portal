@@ -121,10 +121,11 @@ const JobsCard = ({ job, handleAddFavourite, handleRemoveFavourite, handleApplyJ
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ position: "relative", display: { xs: 'none', md: "block" } }}>
                     <Box component="div"
-                        position={scrollPosition > 300 ? "fixed" : "sticky"}
-                        top={110}
-                        right={60}
-                        width={scrollPosition > 300 ? "45%" : "100%"}
+                        // position={scrollPosition > 100 ? "fixed" : "sticky"}
+                        // top={110}
+                        // right={60}
+                        width="100%"
+                        // width={scrollPosition > 300 ? "45%" : "100%"}
                         sx={{ cursor: "default !important", transition: "all 0.3s step-start" }} className={classes.jobCardContainer}>
                         <Box component="div" sx={{ borderBottom: `3px solid ${textColor}`, paddingBottom: "20px" }}>
                             <Box component="div">
