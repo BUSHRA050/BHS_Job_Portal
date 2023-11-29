@@ -10,7 +10,7 @@ import { profile } from "../../../../../constants/Images"
 import { AppContext } from "../../../../../context"
 import { getAppliedJobsById } from "../../../../../services/Jobs"
 import useStyles from "../../../../../styles"
-import ReactToPdf from "react-to-pdf"
+// import ReactToPdf from "react-to-pdf"
 import Resume from "../../../../../components/Resume"
 import { useNavigate } from "react-router-dom"
 

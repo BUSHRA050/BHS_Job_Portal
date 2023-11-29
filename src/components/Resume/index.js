@@ -1,312 +1,256 @@
-import { CloudDownload } from '@mui/icons-material';
-import { Box } from '@mui/material';
-import React from 'react';
-import { useEffect } from 'react';
-import { createRef } from 'react';
-import ReactToPdf from "react-to-pdf"
-import { headerColor, primaryBorderColor, primaryColor } from '../../constants/Colors';
-import { getResume } from '../../services/OrginizationDashboard';
-import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import moment from 'moment';
+import React from "react";
+import {
+  Document,
+  Page,
+  View,
+  Text,
+  StyleSheet,
+  PDFDownloadLink,
+  Image,
+  PDFViewer,
+  Svg,
+  Rect,
+  Polygon
+} from "@react-pdf/renderer";
+import moment from "moment";
+import { Email, Lock } from "@mui/icons-material";
 
-const resumeData = {
-    image: require('../../assets/profile.png'),
-    name: 'John Smith',
-    email: 'john@example.com',
-    phone: '123-456-7890',
-    address: '123 Main St, Anytown, CA 12345',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    experience: [
-        {
-            title: 'Software Engineer',
-            company: 'ACME Inc',
-            duration: 'Jan 2020 - Present',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        },
-        {
-            title: 'Software Developer',
-            company: 'XYZ Corp',
-            duration: 'Jan 2019 - Dec 2019',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        },
-    ],
-    skills: ['JavaScript', 'HTML', 'CSS', 'React', 'Node.js'],
-    education: [
-        {
-            degree: 'Bachelor of Science in Computer Science',
-            institution: 'University of Example',
-            duration: 'Sep 2015 - May 2019',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        },
-    ],
-};
+const styles = StyleSheet.create({
+  page_view: {
+    backgroundColor: "white",
+  },
+//   top_section: {
+//     backgroundColor: "#19509F",
+//     color: "white",
+//     marginTop: "20px",
+//     marginLeft: "20px",
+//     marginRight: "20px",
+//     textAlign: "center",
+//     padding: "20px",
+//     borderRadius: "8px",
+//   },
+  underline: {
+    // textDecoration:"underline",
+    fontSize: "28px",
+    marginBottom: "15px",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+  },
+  position: {
+    fontSize: "12px",
+    fontWeight: "light",
+    textTransform: "uppercase",
+  },
+  flex_section: {
+    justifyContent: "center",
+    flexDirection: "row",
+    // margin: "20px",
+  },
+  left_section: {
+    flex: "0 0 70%",
+    padding: "24px",
+  },
+  right_section: {
+    // backgroundColor: "#D3DDF9",
+    backgroundColor: "#19509F",
+    flex: "0 0 30%",
+    padding: "20px",
+    minHeight:"80vh"
+    // borderRadius: "8px",
+  },
+  grays:{
+ color:"gray"
+  },
+  headings: {
+    color: "#fff",
+    marginBottom: "4px",
+    fontSize: "17px",
+    fontWeight: "bold",
+    textDecoration:"underline"
+  },
+  headingss: {
+    color: "#000",
+    marginBottom: "4px",
+    fontSize: "17px",
+    fontWeight: "bold",
+    textDecoration:"underline"
+  },
+  summary_text: {
+    fontSize: "10px",
+  },
+  space: {
+    marginTop: "20px",
+  },
+  padding: {
+    paddingBottom: "1px",
+    fontSize: "9px",
+  },
+  expreince: {
+    marginTop: "7px",
+    fontSize: "10px",
+  },
+  contact: {
+    marginTop: "7px",
+    fontSize: "10px",
+    color: "gray",
+  },
+  right_title: {
+   fontSize:"18px",
+   marginBottom:"8px",
+   fontWeight:"bolder",
+   color:"#fff"
+  },
+  right_position: {
+   fontSize:"10px",
+   marginBottom:"30px",
+   color:"gray"
 
-const Resume = () => {
-    const ref = createRef();
-    const params = useParams();
-    const [resume, setResume] = useState(resumeData);
+  },
+  borders:{
+border:"4px solid #051225"
+  }
+});
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const options = {
-        orientation: 'portrait',
-        unit: 'in',
-        format: [16, 8]
-    };
+const Resume = ({ resume }) => {
+  console.log(resume, "resumeeeeeeeeeeeeeeeeeeee");
 
-    useEffect(() => {
-        getResume(params?.id).then((res) => {
-            setResume(res?.data?.data);
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, []);
-
-
+  const ShowResume = () => {
     return (
-        <>
+      <>
+        <Document>
+          <Page size="A4" style={styles.page_view}>
+            {/* TOP-SECTION */}
+            {/* <View style={styles.top_section}>
+              <Text style={styles.underline}>Noman Khan</Text>
+              <Text style={styles.position}>
+                {" "}
+                {resume?.resume?.jobDescription}
+              </Text>
+            </View> */}
 
-            <div ref={ref} style={styles.container}>
-                <div style={styles.header}>
-                    <div style={{
-                        textAlign: "left",
-                    }}>
-                        <div style={styles.name}>
-                            {resume?.user?.name}
-                        </div>
-                        <div style={styles.email}>
-                            {resume?.resume?.email}
-                        </div>
-                        <div style={styles.phone}>
-                            {resume?.resume?.phone}
-                        </div>
-                        <div style={styles.phone}>
-                            {resume?.resume?.location}
-                        </div>
-                    </div>
-                    <img style={{
-                        width: "100px",
-                        height: "100px",
-                    }} src={resume?.user?.userImage} />
-
-                </div>
-                <div style={{
-                    padding: "50px",
-                }}>
-
-                    <div style={styles.section}>
-                        <div style={styles.sectionTitle}>
-                            Summary
-                        </div>
-                        <div style={styles.sectionContent}>
-                            {resume?.resume?.about}
-                        </div>
-                    </div>
-                    <div style={styles.section}>
-                        <div style={styles.sectionTitle}>
-                            Experience
-                        </div>
-                        {resume?.resume?.experience.map((item, index) => (
-                            <div key={index} style={styles.experienceItem}>
-                                <div style={styles.experienceTitle}>
-                                    {item.title}
-                                </div>
-                                <div style={styles.experienceCompany}>
-                                    {item.company}
-                                </div>
-                                <div style={styles.experienceDuration}>
-                                    {`${moment(item.startYear).format("YYYY")} - ${moment(item.endYear).format("YYYY")}`}
-                                </div>
-                                <div style={styles.experienceDescription}>
-                                    {item.description}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div style={styles.section}>
-                        <div style={styles.sectionTitle}>
-                            Skills
-                        </div>
-                        <div style={{
-                            fontSize: "16px",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "10px",
-
-                        }}>
-                            {
-                                resume?.resume?.skills?.map((item, index) => {
-                                    return <div
-                                        style={{
-                                            backgroundColor: "#e0effa",
-                                            padding: "10px",
-                                            borderRadius: "5px",
-                                        }}
-                                    >{item?.title}</div>
-
-                                })
-                            }
-                        </div>
-                    </div>
-                    <div style={styles.section}>
-                        <div style={styles.sectionTitle}>
-                            Education
-                        </div>
-                        {resume?.resume?.education?.map((item, index) => (
-                            <div key={index} style={styles.educationItem}>
-                                <div style={styles.educationDegree}>
-                                    {item?.title}
-                                </div>
-                                <div style={styles.educationInstitution}>
-                                    {item?.institute}
-                                </div>
-                                <div style={styles.educationDuration}>
-                                    {`${moment(item.startYear).format("YYYY")} - ${moment(item.endYear).format("YYYY")}`}
-                                </div>
-                                <div style={styles.educationDescription}>
-                                    {item?.description}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <ReactToPdf
-                    targetRef={ref}
-                    filename={`${resume?.user?.name}.pdf`}
-                    x={10}
-                    y={10}
-                    scale={0.8}
-                    paperSize="A4"
-                    landscape
-                >
-                    {({ toPdf }) => <Box
-                        sx={{
-                            cursor: "pointer",
-                            border: `1px solid ${primaryBorderColor}`,
-                            gap: "10px",
-                            fontSize: "14px",
-                            padding: "7px",
-                            marginTop: "10px",
-                            position: "absolute",
-                            top: "-10px",
-                            right: "-70px",
-                            "&:hover": {
-                                background: primaryColor,
-                                color: headerColor,
-                                transition: "all 0.3s ease-in-out"
-                            },
-
-                        }}
-                        display="flex" alignItems="center" p={2} component='div'
-                        onClick={toPdf}
-                    >
-                        <CloudDownload />
-                    </Box>}
-
-                </ReactToPdf>
-
-            </div>
-
-        </>
+            {/* user-detail section */}
+            <View style={styles.borders}>
+              <View style={styles.flex_section}>
+             
+                <View style={styles.right_section}>
+                    <View>
+                        <Text style={styles.right_title}>{resume?.user?.name}</Text>
+                        <Text style={styles.right_position}>{resume?.resume?.jobDescription}</Text>
+                    </View>
+                  <View>
+                    <Text style={styles.headings}>Contact</Text>
+                    <Text style={styles.contact}>{resume?.resume?.email}</Text>
+                    <Text style={styles.contact}>{resume?.resume?.phone}</Text>
+                    <Text style={styles.contact}>
+                      {resume?.resume?.location}
+                    </Text>
+                  </View>
+                  <View style={styles.space}>
+                    <Text style={styles.headings}>Skills</Text>
+                    {resume?.resume?.skills?.map((item, index) => (
+                      <View
+                        style={{ flexDirection: "row", alignItems: "center" }}
+                      >
+                        <Text style={styles.contact}>•</Text>
+                        <Text style={{ ...styles.contact, paddingLeft: "3px" }}>
+                          {item?.title}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+                <View style={styles.left_section}>
+                  <View>
+                    <Text style={styles.headingss}>SUMMARY</Text>
+                    <Text style={styles.summary_text}>
+                      {resume?.resume?.about}
+                    </Text>
+                  </View>
+                  <View style={styles.space}>
+                    <Text style={styles.headingss}>EXPRIENCE</Text>
+                    {resume?.resume?.experience.map((item, index) => (
+                      <View key={index}>
+                        <Text style={styles.padding}>{item.title}</Text>
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Text style={styles.padding}>{item.company}</Text>
+                          <Text style={styles.padding}>
+                            {`${moment(item.startYear).format(
+                              "YYYY"
+                            )} - ${moment(item.endYear).format("YYYY")}`}
+                          </Text>
+                        </View>
+                        <Text style={styles.expreince}>{item.description}</Text>
+                      </View>
+                    ))}
+                  </View>
+                  <View style={styles.space}>
+                    <Text style={styles.headingss}>Education</Text>
+                    {resume?.resume?.education?.map((item, index) => (
+                      <View key={index} style={{ marginTop: "5px" }}>
+                        <Text
+                          style={{
+                            ...styles.padding,
+                            textDecoration: "underline",
+                            fontWeight: "bold",
+                            fontSize: "11px",
+                          }}
+                        >
+                          {item.title}
+                        </Text>
+                        <Text style={styles.padding}>{item?.institute}</Text>
+                        <Text style={styles.padding}>
+                          {`${moment(item.startYear).format("YYYY")} - ${moment(
+                            item.endYear
+                          ).format("YYYY")}`}
+                        </Text>
+                        <Text style={styles.padding}>{item.description}</Text>
+                      </View>
+                    ))}
+                  </View>
+                  <View style={styles.space}>
+                    <Text style={styles.headingss}>Portfolio</Text>
+                    {resume?.resume?.portFolio?.map((item, index) => (
+                      <View key={index} style={{ marginTop: "5px" }}>
+                        <Text
+                          style={{
+                            ...styles.padding,
+                            fontWeight: "bold",
+                            fontSize: "11px",
+                          }}
+                        >
+                          {item.title}
+                        </Text>
+                        <Text style={styles.padding}>{item?.link}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              </View>
+            </View>
+          </Page>
+        </Document>
+      </>
     );
+  };
+
+  return (
+    <>
+      <PDFDownloadLink document={<ShowResume />} fileName="Salman 111111">
+        {({ loading, error }) =>
+          loading ? <button>loading</button> : <button>download</button>
+        }
+      </PDFDownloadLink>
+      
+      <PDFViewer width={"100%"} height={"700px"}>
+        <ShowResume />
+      </PDFViewer>
+    </>
+  );
 };
-
-const styles = {
-    container: {
-        width: '700px',
-        margin: '0 auto',
-        fontFamily: 'Arial',
-        // padding: '50px',
-        border: '1px solid #333', // set border color,
-        position:"relative"
-
-    },
-    header: {
-        marginBottom: '50px',
-        borderBottom: '1px solid #333', // set border color,
-        paddingBottom: '20px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        backgroundColor: '#2a78ab',
-        padding: "25px",
-        color: '#fff',
-    },
-    name: {
-        fontSize: '32px',
-        fontWeight: 'bold',
-    },
-    contact: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    email: {
-        fontSize: '14px',
-        marginTop: '5px',
-
-    },
-    phone: {
-        fontSize: '14px',
-        marginTop: '5px',
-
-    },
-    section: {
-        marginBottom: '50px',
-    },
-    sectionTitle: {
-        fontSize: '24px',
-        fontWeight: 'bold',
-        marginBottom: '20px',
-        backgroundColor: "#e0effa",
-        padding: "10px",
-        borderRadius: "5px",
-    },
-    sectionContent: {
-        fontSize: '16px',
-    },
-    experienceItem: {
-        marginBottom: '20px',
-    },
-    experienceTitle: {
-        fontSize: '20px',
-        fontWeight: 'bold',
-        marginBottom: '5px',
-    },
-    experienceCompany: {
-        fontSize: '18px',
-        marginBottom: '5px',
-    },
-    experienceDuration: {
-        fontSize: '16px',
-        color: '#999',
-        marginBottom: '5px',
-    },
-    experienceDescription: {
-        fontSize: '16px',
-    },
-    educationItem: {
-        marginBottom: '20px',
-    },
-    educationDegree: {
-        fontSize: '20px',
-        fontWeight: 'bold',
-        marginBottom: '5px',
-    },
-    educationInstitution: {
-        fontSize: '18px',
-        marginBottom: '5px',
-    },
-    educationDuration: {
-        fontSize: '16px',
-        color: '#999',
-        marginBottom: '5px',
-    },
-    educationDescription: {
-        fontSize: '16px',
-    },
-};
-
 
 export default Resume;
-

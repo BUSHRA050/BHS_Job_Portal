@@ -164,7 +164,7 @@ const JobsCard = ({ job, handleAddFavourite, handleRemoveFavourite, handleApplyJ
                                 </Box>
                             </Box>
                         </Box>
-                        <Box component="div" sx={{ height: "190px", overflowY: "scroll", padding: "20px" }}>
+                        <Box component="div" sx={{ height: "750px", overflowY: "scroll", padding: "20px" }}>
                             <Box component="div" sx={{ borderBottom: `1px solid ${textColor}`, paddingBottom: "20px" }}>
 
                                 <Typography sx={{ fontSize: "22px !important", fontWeight: "600 !important" }} variant="h1" className={classes.heroHeading}>

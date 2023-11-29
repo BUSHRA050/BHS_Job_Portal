@@ -36,3 +36,22 @@ export const getProfileScore = (params) => {
 export const sendSupportMail = (params) => {
     return Api(`${endPoints.sendSupportMail}`, params, requestType.POST)
 }
+
+
+//Cover Letter
+
+export const createCoverLetter = (params) => {
+    return Api(`${endPoints.createCoverLetter}`, params, requestType.POST)
+}
+
+export const updateCoverLetter = (id, params) => {
+    return Api(`${endPoints.updateCoverLetter}/${id}`, params, requestType.PUT)
+}
+
+export const getCoverLetter = (id) => {
+    return Api(`${endPoints.getCoverLetter}/${id}`, null, requestType.GET)
+}
+
+export const getCoverLetterById = (id) => {
+    return Api(`${endPoints.getCoverLetterById}/${id}`, null, requestType.GET)
+}

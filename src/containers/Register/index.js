@@ -13,7 +13,7 @@ import ImageUploader from "../../components/ImageUploader"
 import { sendCode, registerUser } from "../../services/Authentication"
 import Swal from "sweetalert2";
 import CodeConfirmationModal from "../../components/CodeConfirmationModal";
-import { createResume } from "../../services/UserDashboard";
+import { createCoverLetter, createResume } from "../../services/UserDashboard";
 
 
 
@@ -186,6 +186,7 @@ const Register = () => {
                             userId: response.data.data._id,
                         }
                         let resumeResponse = await createResume(resumePayload)
+                        let newResume = await createCoverLetter(resumePayload)
                     }
                     setOpenModal(false);
                     setCode("");

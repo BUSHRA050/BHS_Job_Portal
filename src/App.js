@@ -16,8 +16,10 @@ import { useRef } from "react";
 import { ProtectedLayout } from "./utils/ProtectedLayout";
 import ResetPassword from "./containers/ResetPassword";
 import PlanPayment from "./containers/PlanPayment";
-import Resume from "./components/Resume";
+// import Resume from "./components/Resume";
 import ResumeTwo from "./components/ResumeTwo";
+import ViewResume from "./containers/ViewResume";
+import ViewCoverLetter from "./containers/ViewCoverLetter";
 
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
     },
   });
   return (
+
     <ThemeProvider theme={theme}>
       <AppProvider>
         <SnackbarProvider ref={providerRef} maxSnack={3}>
@@ -56,7 +59,8 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/dashboard/pricingPlan" element={<PlanPayment />} />
                 {/* <Route path="/dashboard/resume/:id" element={<Resume />} /> */}
-                <Route path="/dashboard/resume/:id" element={<ResumeTwo />} />
+                <Route path="/dashboard/resume/:id" element={<ViewResume />} />
+                <Route path="/dashboard/coverLetter/:id" element={<ViewCoverLetter />} />
 
               </Route>
             </Routes>

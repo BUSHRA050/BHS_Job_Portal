@@ -44,4 +44,13 @@ export const endPoints = {
 
     getAllUsers: "getAllUsers",
     getAllOrganizations: "getAllOrginization",
+
+    //Resume
+    createCoverLetter:"createCoverLetter",
+    getCoverLetterById:"getCoverLetterById",
+    getCoverLetter:"getCoverLetterById",
+    getCoverLetterById:"getCoverLetter",
+    getAllCoverLetterByCategory:"getAllCoverLetterByCategory",
+    updateCoverLetter:"updateCoverLetter",
+    deleteCoverLetter:"deleteCoverLetter",
 };

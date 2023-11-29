@@ -34,30 +34,36 @@ const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProf
         },
         {
             id: 4,
+            label: "Cover Letter",
+            path: "coverLetter",
+            icon: "app_registration"
+        },
+        {
+            id: 5,
             label: "Favourite",
             path: "favourite",
             icon: "favorite"
         },
         {
-            id: 5,
+            id: 6,
             label: "Applied Jobs",
             path: "appliedJobs",
             icon: "check_box"
         },
         {
-            id: 6,
+            id: 7,
             label: "Find a Job",
             path: "/findAJob",
             icon: "work"
           },
           {
-            id: 7,
+            id: 8,
             label: "Contact",
             path: "/contactUs",
             icon: "favorite"
           },
           {
-            id: 8,
+            id: 9,
             label: "About",
             path: "/aboutUs",
             icon: "info"

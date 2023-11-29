@@ -8,8 +8,7 @@ import WorkExperience from "./WorkExperience";
 import Skills from "./Skills";
 import IconButton from "../../../../../components/IconButton";
 import {
-  getProfileScore,
-  getResume,
+  getCoverLetter,
 } from "../../../../../services/UserDashboard";
 import { useLayoutEffect } from "react";
 import { useContext } from "react";
@@ -17,11 +16,12 @@ import { AppContext } from "../../../../../context";
 import { useState } from "react";
 import Portfolio from "./Portfolio";
 import { useNavigate } from "react-router-dom";
-import { template1, template2, template3 } from "../../../../../constants/Images";
+import { template1, template2, template3,cover,cover2
+,cover3 } from "../../../../../constants/Images";
 import { primaryColor } from "../../../../../constants/Colors";
 
-const Resume = ({ setProfileScore }) => {
-  const { user, selectedTemplate, handleSelecteTemplate } =
+const CoverLetterComponent = ({ setProfileScore }) => {
+  const { user, selectedTemplate, handleSelecteTemplate,handleSelectCoverLetter,selectedCoverLetter } =
     useContext(AppContext);
   const navigate = useNavigate();
   const [resume, setResume] = useState();
@@ -129,50 +129,35 @@ const Resume = ({ setProfileScore }) => {
   ];
 
   useLayoutEffect(() => {
-    getUserResume(user._id);
+    getUserCoverLetter(user._id);
   }, []);
 
-  const getUserResume = async (userId) => {
+  const getUserCoverLetter = async (userId) => {
     try {
-      const response = await getResume(userId);
-      setResume(response.data.data);
-      let basicInfo = {
-        jobDescription: response.data.data.jobDescription,
-        email: response.data.data.email,
-        phone: response.data.data.phone,
-        location: response.data.data.location,
-      };
-      let payload = {
-        education: response.data.data.education,
-        experience: response.data.data.experience,
-        skills: response.data.data.skills,
-        portfolio: response.data.data.portFolio,
-        about: response.data.data.about,
-        basicInfo: basicInfo,
-      };
-      if (response.status === 200) {
-        let result = await getProfileScore(payload);
-        setProfileScore(result.data.data);
-      }
+      const response = await getCoverLetter(userId)
+          setResume(response.data.data);
+      
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleSelectResume = (data) => {
-    localStorage.setItem("selectedTemplate", JSON.stringify(data));
-    handleSelecteTemplate(data);
+    localStorage.setItem("selectedCoverLetter", JSON.stringify(data));
+    handleSelectCoverLetter(data);
   };
 
   const handleNavigate=()=>{
-    if (selectedTemplate !== null) {
-      navigate(`/dashboard/resume/${resume?._id}`);
+   
+    if (selectedCoverLetter !== null) {
+      navigate(`/dashboard/coverLetter/${resume?._id}`);
     }else{
       alert("Please select template")
     }
   }
  
 
+  
   return (
     <Box component="div">
       <Box
@@ -180,54 +165,54 @@ const Resume = ({ setProfileScore }) => {
         component="div"
         sx={{ marginTop: "20px" }}
       >
-        <IconButton className={classes.heroBtn}>View Resume</IconButton>
+        <IconButton className={classes.heroBtn}>View Cover Letter</IconButton>
       </Box>
       
         <div style={{display:"flex",flexDirection:"row",gap:"20px"}}>
-          <div style={{padding:"5px",border:selectedTemplate == "Template1" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template1")}>
-          <img src={template1} style={{height:"250px",width:"200px"}}/>
+          <div style={{padding:"5px",border:selectedCoverLetter == "Template1" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template1")}>
+          <img src={cover} style={{height:"250px",width:"200px"}}/>
           </div>
-          <div  style={{padding:"5px",border:selectedTemplate == "Template2" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template2")}>
-          <img src={template2} style={{height:"250px",width:"200px"}}/>
+          <div  style={{padding:"5px",border:selectedCoverLetter == "Template2" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template2")}>
+          <img src={cover2} style={{height:"250px",width:"200px"}}/>
           </div>
-          <div style={{padding:"5px",border:selectedTemplate == "Template3" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template3")}>
-          <img src={template3} style={{height:"250px",width:"200px"}}/>
+          <div style={{padding:"5px",border:selectedCoverLetter == "Template3" ? `2px solid ${primaryColor}` :  "0px solid green"}} onClick={()=>handleSelectResume("Template3")}>
+          <img src={cover3} style={{height:"250px",width:"200px"}}/>
           </div>
          
         </div>
       
       <BasicInfo
-        getUserResume={getUserResume}
+        getUserResume={getUserCoverLetter}
         resume={resume}
         basicInfo={basicInfoData}
       />
       <About
-        getUserResume={getUserResume}
+        getUserResume={getUserCoverLetter}
         resume={resume}
         about="BHS provides a platform for both job seekers and organizations to fulfill their needs. The portal provides employment opportunities to the job seekers and reduces the effort of searching job of desired position. It facilitates the organization by filtering all the appropriate resumes according to the job description which eventually minimizes human resource work and screening process."
       />
-      <EducationBackground
+      {/* <EducationBackground
         getUserResume={getUserResume}
         resume={resume}
         educationInfo={educationInfoData}
-      />
-      <WorkExperience
+      /> */}
+      {/* <WorkExperience
         getUserResume={getUserResume}
         resume={resume}
         workInfo={workExperienceData}
-      />
-      <Skills
+      /> */}
+      {/* <Skills
         getUserResume={getUserResume}
         resume={resume}
         specialQualification={specialQualificationData}
-      />
-      <Portfolio
+      /> */}
+      {/* <Portfolio
         getUserResume={getUserResume}
         resume={resume}
         specialQualification={specialQualificationData}
-      />
+      /> */}
     </Box>
   );
 };
 
-export default Resume;
+export default CoverLetterComponent;

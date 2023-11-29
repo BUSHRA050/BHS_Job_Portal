@@ -9,6 +9,7 @@ import { useSnackbar } from "notistack";
 import { getAllUsers, getAllOrganizations } from "../../services/Authentication";
 import Intro from "../../components/Intro";
 import HomeData from "../../data/home.json"
+import Testimonials from "../Dashboard/Candidate/components/Testimonials";
 
 
 const Home = () => {
@@ -162,6 +163,7 @@ const Home = () => {
             </Container>
             <StatisticalFact allUsers={allUsers} allOrganizations={allOrganizations} />
             <PricingPlan user={user} handleSelectPlan={handleSelectPlan} />
+            <Testimonials/>
             <ScrollToTop01 />
         </Box>
     )

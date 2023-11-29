@@ -8,6 +8,7 @@
   background: linear-gradient(0deg, rgba(242,153,74,0.98) 39%, rgba(242,153,74,0.86) 100%);
   overflow: hidden;
   border-radius: 20% 0 0 20%;
+  /* color: #051225; */
 }
 
 .heroAnimatedWrapper::after {
