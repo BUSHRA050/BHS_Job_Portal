@@ -58,7 +58,7 @@ const Candidate = () => {
                 </div>
         
 
-            </Box>
+            </Box>  
              <div className="container-fluid">
                <div className="row mt-4">
                 <div className="col-md-3">

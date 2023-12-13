@@ -48,9 +48,9 @@ const CompanySidebar = ({ selectedPage, setSelectedPage, setJobData, setApplicat
         }
     ]
     return (
-        <Box component="div" sx={{ width: "80%" }}>
+        <Box component="">
             <Box component="div" className={classes.sidebarContainer}>
-                <img src={user?.userImage} style={{ width: "100%", height: "300px" }} />
+                <img src={user?.userImage} style={{ width: "100%", height: "250px" }} />
                 <Box component="div" textAlign="center" marginTop="20px">
                     <Typography variant="h1" sx={{ fontSize: "22px !important", fontWeight: "400 !important" }}>
                         {user?.name}
