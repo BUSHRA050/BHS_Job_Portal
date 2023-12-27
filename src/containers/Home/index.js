@@ -12,6 +12,7 @@ import HomeData from "../../data/home.json"
 import Testimonials from "../Dashboard/Candidate/components/Testimonials";
 
 
+
 const Home = () => {
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();

@@ -7,7 +7,8 @@ import {
   Tooltip,
   Box,
 } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -23,11 +24,6 @@ const linksOne = [
     path: "/",
   },
   {
-    id: 2,
-    name: "Find a Job",
-    path: "/findAJob",
-  },
-  {
     id: 3,
     name: "Contact",
     path: "/contactUs",
@@ -37,16 +33,7 @@ const linksOne = [
     name: "About",
     path: "/aboutUs",
   },
-  {
-    id: 5,
-    name: "Privacy Policy",
-    path: "/releaseNotes",
-  },
-  {
-    id: 6,
-    name: "Terms and Conditions",
-    path: "/press",
-  },
+ 
   // {
   //   id: 7,
   //   name: "Careers",
@@ -65,41 +52,23 @@ const linksOne = [
 ];
 
 const linksTwo = [
-  {
-    id: 1,
-    name: "Videos",
-    path: "/videos",
-  },
+  
   {
     id: 2,
-    name: "Support",
-    path: "/support",
-  },
-  {
-    id: 3,
-    name: "Testimonials",
-    path: "/testimonials",
-  },
-  {
-    id: 4,
-    name: "Partners",
-    path: "/partners",
+    name: "Find a Job",
+    path: "/findAJob",
   },
   {
     id: 5,
-    name: "Booking",
-    path: "/booking",
+    name: "Privacy Policy",
+    path: "/releaseNotes",
   },
   {
     id: 6,
-    name: "Blog",
-    path: "/blog",
+    name: "Terms and Conditions",
+    path: "/press",
   },
-  {
-    id: 7,
-    name: "Local",
-    path: "/local",
-  },
+
 ];
 
 const AppFooter = () => {
@@ -110,7 +79,7 @@ const AppFooter = () => {
       <Container maxWidth="xl">
         <div className={classes.footerContainer}>
           <Grid container spacing={3} justifyContent="space-between">
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4}>
               <div>
                 {/* <Typography variant="h5" className={classes.footerHead}>
                   <Typography variant="h6" noWrap component="div" sx={{ color: primaryColor, fontWeight: "bold", fontSize: "2.5rem" }}>
@@ -132,11 +101,11 @@ const AppFooter = () => {
                 </Button>
               </div>
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={3} className="ml-5 text-center">
               <Grid container justifyContent="space-between">
                 <Grid item xs={12} md={5}>
                   <Typography variant="h3" className={classes.footerHead}>
-                    Compnany
+                   Quick Links
                   </Typography>
                   {linksOne.map((item) => {
                     return (
@@ -169,7 +138,44 @@ const AppFooter = () => {
                 </Grid> */}
               </Grid>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={3}  className="text-center">
+              <Grid container justifyContent="space-between">
+                <Grid item xs={12} md={5}>
+                  <Typography variant="h3" className={classes.footerHead}>
+                    Company
+                  </Typography>
+                  {linksTwo.map((item) => {
+                    return (
+                      <Typography
+                        variant="body2"
+                        className={classes.footerTypo}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => navigate(item.path)}
+                      >
+                        {item.name}
+                      </Typography>
+                    );
+                  })}
+                </Grid>
+                {/* <Grid item xs={12} md={4}>
+                  <Typography variant="h3" className={classes.footerHead}>
+                    Resources
+                  </Typography>
+                  {linksTwo.map((item) => {
+                    return (
+                      <Typography
+                        variant="body2"
+                        className={classes.footerTypo}
+                        style={{ cursor: "pointer" }}
+                      >
+                        {item.name}
+                      </Typography>
+                    );
+                  })}
+                </Grid> */}
+              </Grid>
+            </Grid>
+            <Grid item xs={12} sm={6} md={2}>
               <div>
                 <Typography variant="h3" className={classes.footerHead}>
                   Contact
@@ -177,12 +183,12 @@ const AppFooter = () => {
                 <Typography variant="body2" className={classes.footerTypo}>
                   Contact
                 </Typography>
-                <div className={classes.footerSocialContainer}>
+                <div >
                   <Tooltip title="Facebook" arrow placement="top">
                     <a style={{
                       textDecoration: "none",
                     }} href="https://www.facebook.com/profile.php?id=100089058866300&mibextid=ZbWKwL" target="_blank" rel="noreferrer">
-                      <FacebookIcon />
+                      <FacebookIcon className="text-secondary"/>
                     </a>
                   </Tooltip>
                   {/* <Tooltip title="Twitter" arrow placement="top">
@@ -192,14 +198,14 @@ const AppFooter = () => {
                     <a style={{
                       textDecoration: "none",
                     }} href="#" rel="noreferrer">
-                      <InstagramIcon />
+                      <InstagramIcon className="text-secondary" />
                     </a>
                   </Tooltip>
                   <Tooltip title="LinkedIn" arrow placement="top">
                     <a style={{
                       textDecoration: "none",
                     }} href="#" rel="noreferrer">
-                      <LinkedInIcon />
+                      <LinkedInIcon className="text-secondary" />
                     </a>
                   </Tooltip>
                 </div>
@@ -212,7 +218,8 @@ const AppFooter = () => {
         <Container maxWidth="xl">
           <Box
             sx={{
-              margin: "10px 0 20px",
+              margin: "10px 0 0px",
+              padding:"10px",
               display: "flex",
               alignItems: "center",
               flexWrap: { xs: "wrap" },

@@ -112,7 +112,9 @@ const CandidateSidebar = ({ selectedPage, setSelectedPage, profileScore, setProf
     return (
         <Box component="" >
             <Box component="div" className={classes.sidebarContainer}>
-                <img src={user?.userImage} style={{ width: "100%", height: "250px" }} />
+               <div className="text-center">
+               <img src={user?.userImage} style={{ width: "202px", height: "248px" }} className="" />
+               </div>
                 <Box component="div" textAlign="center" marginTop="20px">
                     <Typography variant="h1" sx={{ fontSize: "22px !important", fontWeight: "400 !important" }}>
                         {user?.name}

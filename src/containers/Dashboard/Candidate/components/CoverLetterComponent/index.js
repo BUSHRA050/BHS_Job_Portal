@@ -8,7 +8,7 @@ import WorkExperience from "./WorkExperience";
 import Skills from "./Skills";
 import IconButton from "../../../../../components/IconButton";
 import {
-  getCoverLetter,
+  getCoverLetter, getCoverLetterById, updateCoverLetter,
 } from "../../../../../services/UserDashboard";
 import { useLayoutEffect } from "react";
 import { useContext } from "react";
@@ -134,7 +134,11 @@ const CoverLetterComponent = ({ setProfileScore }) => {
 
   const getUserCoverLetter = async (userId) => {
     try {
-      const response = await getCoverLetter(userId)
+      const response = await getCoverLetterById(userId)
+      if (response.data.data?.selectedTemplate) {
+        localStorage.setItem("selectedCoverLetter", JSON.stringify(response?.data?.data?.selectedTemplate));
+        handleSelectCoverLetter(response?.data?.data?.selectedTemplate);
+      }
           setResume(response.data.data);
       
     } catch (error) {
@@ -142,9 +146,13 @@ const CoverLetterComponent = ({ setProfileScore }) => {
     }
   };
 
-  const handleSelectResume = (data) => {
+  const handleSelectResume = async(data) => {
     localStorage.setItem("selectedCoverLetter", JSON.stringify(data));
     handleSelectCoverLetter(data);
+    let payload = {
+      selectedTemplate:data
+  }
+    const response = await updateCoverLetter(resume._id, payload)
   };
 
   const handleNavigate=()=>{

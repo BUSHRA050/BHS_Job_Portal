@@ -48,8 +48,7 @@ export const endPoints = {
     //Resume
     createCoverLetter:"createCoverLetter",
     getCoverLetterById:"getCoverLetterById",
-    getCoverLetter:"getCoverLetterById",
-    getCoverLetterById:"getCoverLetter",
+    getCoverLetter:"getCoverLetter",
     getAllCoverLetterByCategory:"getAllCoverLetterByCategory",
     updateCoverLetter:"updateCoverLetter",
     deleteCoverLetter:"deleteCoverLetter",

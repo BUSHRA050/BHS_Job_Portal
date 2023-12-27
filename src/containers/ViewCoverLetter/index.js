@@ -26,14 +26,14 @@ const ViewCoverLetter = () => {
 //   };
 
   useEffect(() => {
-      getCoverLetterById(params?.id).then((res) => {
+      getCoverLetter(params?.id).then((res) => {
           setResume(res?.data?.data);
       }).catch((err) => {
           console.log(err);
       })
   }, []);
 
-
+console.log(resume,"dkjkdjjdkjdjkdkdjdkjkdjdjdkjdkjdkjd");
 
   return (
     <>

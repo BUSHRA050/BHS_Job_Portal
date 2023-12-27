@@ -8,6 +8,7 @@ import { Search, Sell, Translate } from "@mui/icons-material";
 import { primaryColor } from "../../../constants/Colors";
 import HeroCompanyCard from "./HeroCompanyCards";
 import "../../../styles/main.css"
+import Image from "../../../assets/business-women-removebg-preview.png"
 
 import { loginImage,registerImage } from "../../../constants/Images";
 
@@ -255,6 +256,44 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                       <img src={registerImage} alt={registerImage} className="img-fluid w-90"/>
                     </div>
                  
+                   </div>
+               </div>
+             </div>
+           </div>
+           <div className="extra-section mx-auto d-none">
+            <div className="container">
+            <div className="row d-flex justify-content-center align-items-center">
+              <div className="col-md-6">
+                 <div className="extra-image">
+                   <img src={Image} alt="business women"/>
+                 </div>
+              </div>
+              <div className="col-md-6">
+                <div className="extra-content text-start">
+                  <p>Experience seamless recruitment with our platform's user-friendly job posting feature. 
+Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!</p>
+                </div>
+              </div>
+            </div>
+            </div>
+           </div>
+           <div className="hero-section text-center" >
+             <div className="container">
+               <div className="row d-flex justify-content-center align-items-center">
+                   <div className="col-md-6">
+                    <div className="login__image">
+                      <img src={Image} alt={Image} className="img-fluid"/>
+                    </div>
+                   </div>
+                   <div className="col-md-6">
+                   <div className="hero_section_content">
+                            
+                            <p className="intro-desc  text-start mb-3 fw-bold">
+                            Experience seamless recruitment with our platform's user-friendly job posting feature. 
+                            Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!
+                            </p>
+                           
+                        </div>
                    </div>
                </div>
              </div>

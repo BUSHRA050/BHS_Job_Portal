@@ -13,7 +13,7 @@ import { AppContext } from "../../context"
 import { useSnackbar } from "notistack"
 import { Navigate, useLocation } from "react-router-dom"
 const FindAJob = () => {
-    const { user } = useContext(AppContext);
+    const { user,selectedCoverLetter,selectedTemplate } = useContext(AppContext);
 
     const classes = useStyles()
     const location = useLocation()
@@ -250,30 +250,48 @@ const FindAJob = () => {
                 }
             })
             return <Navigate to="/login" replace />
-        } else {
-            try {
-                let payload = {
-                    jobId: jobId,
-                    userId: user?._id,
-                    companyId: companyId
+        } else if (user && user.role === "Organization") {
+            enqueueSnackbar("organization can not apply for jobs", {
+                variant: "error",
+                anchorOrigin: {
+                    vertical: 'bottom',
+                    horizontal: 'right',
                 }
-                const response = await applyJob(payload)
-                if (response.data.status === "ok") {
-                    enqueueSnackbar(response.data.message, {
-                        variant: "success",
-                        anchorOrigin: {
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }
-                    })
-                    getJobsData(
-                        searchValue?.keyword ? searchValue?.keyword : "",
-                        searchValue?.location ? searchValue?.location : "",
-                        searchValue?.experience ? searchValue?.experience : "",
-                        searchValue?.jobDescription ? searchValue?.jobDescription : ""
-                    )
-                } else {
-                    enqueueSnackbar(response.data.message, {
+            })
+        }else {
+            try {
+                if (selectedCoverLetter && selectedTemplate) {
+                    let payload = {
+                        jobId: jobId,
+                        userId: user?._id,
+                        companyId: companyId
+                    }
+                    const response = await applyJob(payload)
+                    if (response.data.status === "ok") {
+                        enqueueSnackbar(response.data.message, {
+                            variant: "success",
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }
+                        })
+                        getJobsData(
+                            searchValue?.keyword ? searchValue?.keyword : "",
+                            searchValue?.location ? searchValue?.location : "",
+                            searchValue?.experience ? searchValue?.experience : "",
+                            searchValue?.jobDescription ? searchValue?.jobDescription : ""
+                        )
+                    } else {
+                        enqueueSnackbar(response.data.message, {
+                            variant: "error",
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }
+                        })
+                    }
+                }else{
+                    enqueueSnackbar("Please Select Resume & Cover Letter Template First", {
                         variant: "error",
                         anchorOrigin: {
                             vertical: 'bottom',
@@ -281,6 +299,7 @@ const FindAJob = () => {
                         }
                     })
                 }
+                
             } catch (error) {
                 enqueueSnackbar(error.message, {
                     variant: "error",

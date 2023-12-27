@@ -138,11 +138,11 @@ const AppliedJobs = () => {
                 padding: "20px"
             }}>
                 <Typography variant="h1" sx={{ fontSize: "18px !important", fontWeight: "400 !important", color: headerColor }}>
-                    {appliedJobs.length} Applied Jobs
+                    {appliedJobs?.length} Applied Jobs
                 </Typography>
             </Box>
             {
-                appliedJobs.map((item) => {
+                appliedJobs?.map((item) => {
                     return (
                         <Box component="div" sx={{
                             border: `1px solid ${primaryBorderColor}`,
@@ -155,12 +155,12 @@ const AppliedJobs = () => {
                                         <Box component="div" sx={{ textAlign: "center" }}>
                                             <img src={profile} style={{ width: "80px" }} />
                                             <Typography variant="h3" sx={{ fontSize: "14px" }}>
-                                                {item.company}
+                                                {/* {item?.company} */}
                                             </Typography>
                                         </Box>
                                         <Box component="div">
                                             <Typography variant="h3" sx={{ fontSize: "18px !important", fontWeight: "400 !important" }}>
-                                                {item.jobTitle}
+                                                {item?.jobTitle}
                                             </Typography>
                                             <Box component="div" sx={{ display: "flex", alignItems: "center", width: "20rem", gap: "10px", marginTop: "10px" }}>
                                                 <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
@@ -172,7 +172,7 @@ const AppliedJobs = () => {
                                                 <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
                                                     <LocationOn sx={{ color: primaryColor }} />
                                                     <Typography variant="h3" sx={{ fontSize: "16px !important", fontWeight: "400 !important", color: textColor }}>
-                                                        {item.fullAddress}
+                                                        {item?.fullAddress}
                                                     </Typography>
                                                 </Box>
                                             </Box>
@@ -196,13 +196,13 @@ const AppliedJobs = () => {
                                         <Box component="div">
 
                                             <IconButton padding="10px" width="90px" height="40px" className={classes.heroBtn}>
-                                                {item.jobType}
+                                                {item?.jobType}
                                             </IconButton>
                                             <IconButton
-                                                disabled={item.appliedCandidateIds.includes(user._id)}
+                                                disabled={item?.appliedCandidateIds.includes(user._id)}
                                                 padding="10px" width="90px" height="40px" className={classes.heroBtn}>
                                                 {
-                                                    item.appliedCandidateIds.includes(user._id) ? "Applied" : "Apply"
+                                                    item?.appliedCandidateIds.includes(user._id) ? "Applied" : "Apply"
                                                 }
                                             </IconButton>
                                         </Box>

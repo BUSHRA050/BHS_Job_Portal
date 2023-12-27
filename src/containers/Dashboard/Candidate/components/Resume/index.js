@@ -10,6 +10,7 @@ import IconButton from "../../../../../components/IconButton";
 import {
   getProfileScore,
   getResume,
+  updateResume,
 } from "../../../../../services/UserDashboard";
 import { useLayoutEffect } from "react";
 import { useContext } from "react";
@@ -136,11 +137,16 @@ const Resume = ({ setProfileScore }) => {
     try {
       const response = await getResume(userId);
       setResume(response.data.data);
+      // console.log(response.data.data?.selectedTemplate,"selectedTepppppp");
+      if (response.data.data?.selectedTemplate) {
+        localStorage.setItem("selectedTemplate", JSON.stringify(response.data.data?.selectedTemplate));
+        handleSelecteTemplate(response.data.data?.selectedTemplate);
+      }
       let basicInfo = {
-        jobDescription: response.data.data.jobDescription,
-        email: response.data.data.email,
-        phone: response.data.data.phone,
-        location: response.data.data.location,
+        jobDescription: response.data.data?.jobDescription,
+        email: response.data.data?.email,
+        phone: response.data.data?.phone,
+        location: response.data.data?.location,
       };
       let payload = {
         education: response.data.data.education,
@@ -159,9 +165,13 @@ const Resume = ({ setProfileScore }) => {
     }
   };
 
-  const handleSelectResume = (data) => {
+  const handleSelectResume = async(data) => {
     localStorage.setItem("selectedTemplate", JSON.stringify(data));
     handleSelecteTemplate(data);
+    let payload = {
+      selectedTemplate:data
+  }
+  const response = await updateResume(resume._id, payload)
   };
 
   const handleNavigate=()=>{

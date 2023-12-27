@@ -1,53 +1,95 @@
-// import { p } from '@mui/material'
-import React from 'react'
-import logo from "../../../../assets/about1.png"
-import { Typography } from '@mui/material'
 
-const Testimonials = () => {
-  return (
-    <>
-       <div className='testimonials p-5'>
-         <div className='container'>
-         <div className='row'>
-         <h3 class="card-title text-center" style={{marginBottom:"20px"}}>Feedback</h3>
-            <div className='col-md-4'>
-               
-                <div class="card mx-auto border-0 p-4" style={{width: "18rem"}}>
-                <img src={logo} class="card-img-top text-center mx-auto" alt="..." style={{borderRadius:"50%", border:"1px solid black", width:"100px", height:"100px"}}/>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Waleed</h5>
-                    <p class="card-text text-center">"This website transformed the way I present my professional journey. The templates are not just visually appealing but also strategically structured".</p>
-                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-                </div>
-                </div>
-            </div>
-            <div className='col-md-4'>
-            <div class="card mx-auto border-0 p-4" style={{width: "18rem"}}>
-                <img src={logo} class="card-img-top text-center mx-auto" alt="..." style={{borderRadius:"50%", border:"1px solid black", width:"100px", height:"100px"}}/>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Sarah </h5>
-                    <p class="card-text text-center">"As an HR professional, finding the right platform for posting jobs is crucial. This website exceeded my expectations and help me to excel my career." </p>
-                    {/* stars */}
-                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-                </div>
-                </div>
-            </div>
-            <div className='col-md-4'>
-            <div class="card mx-auto border-0 p-4" style={{width: "18rem"}}>
-                <img src={logo} class="card-img-top text-center mx-auto" alt="..." style={{borderRadius:"50%", border:"1px solid black", width:"100px", height:"100px"}}/>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Saima</h5>
-                    <p class="card-text text-center">"The resume-building tools on this site are a game-changer for professionals like me. The templates cater perfectly to the IT industry, and the process is easy."
-</p>
-                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-                </div>
-                </div>
-            </div>
-          </div>
-         </div>
+
+
+import React, { Component } from "react";
+import Slider from "react-slick";
+import image from "../../../../assets/login.png"
+import { Columns } from "lucide-react";
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import { primaryColor } from "../../../../constants/Colors";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+export default class Testimonials extends Component {
+
+  render() {
+    const testimonalData = [
+      {
+        desc:"The job search feature provided relevant opportunities, and I landed my current role thanks to this platform. A must-try for anyone navigating the competitive job market.",
+        name:'Mehak',
+        profession:"Marketing Coordinator"
+      },
+      {
+        desc:"The resume-building tools on this site are a game-changer for professionals like me. The templates cater perfectly to the IT industry, and the process is straightforward.",
+        name:'Saima',
+        profession:"IT Consultant"
+      },
+      {
+        desc:"This website streamlined our hiring process. The job posting feature attracted a diverse pool of candidates, and the intuitive design tools allowed us to create compelling listings.",
+        name:'Saleh',
+        profession:"Sales Manager"
+      },
+      {
+        desc:"The resume-building tools on this site are a game-changer for professionals like me. The templates cater perfectly to the IT industry, and the process is straightforward",
+        name:'Noman',
+        profession:"React-developer"
+      },
+    ]
+    var settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
+
+    return (
+      <div>
+       <div className="container p-5">
+       <h2 className="text-center mb-5"> Our Clients Says!!!</h2>
+        <Slider {...settings}>
+        {testimonalData.map((item, index) => (
+          <div className="card p-4" key={index}>
+     <span className="fw-bold" color={primaryColor}><FormatQuoteIcon className="fs-1 mb-2"/></span>
+   <h6>{item.desc}</h6>
+   <div className="d-flex align-items-center gap-3">
+     {/* <img src={item.img} alt="image" className="" style={{maxWidth:"80px"}} /> */}
+     <span className=""><AccountCircleIcon className="fs-1 text-secondary"/></span>
+    <div className="text-start" style={{display:"flex", flexDirection:"column"}}>
+   <span className="text-start fw-bold">{item.name}</span>
+   <span className="fw-light">{item.profession}</span>
+    </div>
+   </div>
+  </div>
+))}
+        </Slider>
        </div>
-    </>
-  )
+      </div>
+    );
+  }
 }
-
-export default Testimonials
