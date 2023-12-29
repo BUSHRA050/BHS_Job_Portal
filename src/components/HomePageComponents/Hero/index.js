@@ -260,7 +260,8 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                </div>
              </div>
            </div>
-           <div className="extra-section mx-auto d-none">
+
+                   <div className="extra-section mx-auto d-none">
             <div className="container">
             <div className="row d-flex justify-content-center align-items-center">
               <div className="col-md-6">
@@ -270,8 +271,11 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
               </div>
               <div className="col-md-6">
                 <div className="extra-content text-start">
-                  <p>Experience seamless recruitment with our platform's user-friendly job posting feature. 
-Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!</p>
+
+
+            
+                  <p> <h1>Experience seamless recruitment with our platform's user-friendly job posting feature: 
+                  </h1>Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!</p>
                 </div>
               </div>
             </div>
@@ -288,9 +292,9 @@ Showcase your company's opportunities to a diverse pool of talent by leveraging 
                    <div className="col-md-6">
                    <div className="hero_section_content">
                             
-                            <p className="intro-desc  text-start mb-3 fw-bold">
-                            Experience seamless recruitment with our platform's user-friendly job posting feature. 
-                            Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!
+                            <p className="intro-desc  text-start ">
+                          <h1> Experience seamless recruitment with our platform's user-friendly job posting feature. </h1>
+                             Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!
                             </p>
                            
                         </div>

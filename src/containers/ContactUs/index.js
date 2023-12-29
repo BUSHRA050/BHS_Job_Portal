@@ -30,7 +30,7 @@ const ContactUs = () => {
         {
             id: 1,
             title: "Location",
-            description: "1234 Street Name, City Name, United States",
+            description: "Block 2, Gulshan-e-Iqbal",
             icon: "room",
         },
         {
@@ -42,7 +42,7 @@ const ContactUs = () => {
         {
             id: 3,
             title: "Contact Us",
-            description: "+1 234 567 890",
+            description: "0321-2451995",
             icon: "phone_enabled",
         }
 
