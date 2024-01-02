@@ -151,10 +151,15 @@ const EditProfile = () => {
       country,
       state,
       city,
-      email,
     } = inputValues;
     let payload = {
-      ...inputValues,
+      name,
+      phone,
+      jobDescription,
+      address,
+      country,
+      state,
+      city,
       userImage: image,
     };
     if (image == "") {

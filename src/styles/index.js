@@ -1,5 +1,5 @@
 import { makeStyles, } from "@mui/styles";
-import { headerColor, primaryColor, textColor, textSecondaryColor } from "../constants/Colors";
+import { headerColor, primaryColor, secondaryColor, textColor, textSecondaryColor } from "../constants/Colors";
 import { heroBannerAnimated, heroBannerBackground } from "../constants/Images";
 import { keyframes } from '@mui/system';
 
@@ -161,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "30px !important",
   },
   footerHead: {
-    color: primaryColor,
+    color: secondaryColor,
     fontSize: "20px !important",
     margin: "10px 0 !important",
     fontWeight: "500 !important",
@@ -192,28 +192,28 @@ const useStyles = makeStyles((theme) => ({
 
   footerBtnStyle: {
     "&.MuiButton-root": {
-      color: headerColor,
+      color: "black",
       fontWeight: "500",
-      background: primaryColor,
+      background: secondaryColor,
       borderRadius: "0px",
       marginTop: "10px",
       padding: "12px 30px",
       fontSize: "15px !important",
       textTransform: "capitalize",
       border: "2px solid",
-      borderColor: headerColor,
+      borderColor: secondaryColor,
     },
     "&:hover": {
-      background: headerColor,
-      color: primaryColor,
+      background:secondaryColor,
+      color: "black",
       border: "2px solid",
-      borderColor: primaryColor,
+      borderColor: secondaryColor,
       transition: "all 0.3s ease-in-out"
     },
   },
 
   footerPolicy: {
-    color: primaryColor,
+    color: secondaryColor,
     fontWeight: "400 !important",
     fontSize: "16px !important",
     lineHeight: "30px !important",
@@ -238,7 +238,7 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #e5e5e5",
     borderRadius: "5px !important",
     marginTop: "10px",
-    width: "70%",
+    width: "90%",
     padding: "10px",
     cursor: "pointer"
   },

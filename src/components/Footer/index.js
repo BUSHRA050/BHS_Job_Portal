@@ -75,7 +75,7 @@ const AppFooter = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   return (
-    <div style={{ background: secondaryColor, marginTop: "50px" }}>
+    <div style={{ background: primaryColor, marginTop: "50px" }}>
       <Container maxWidth="xl">
         <div className={classes.footerContainer}>
           <Grid container spacing={3} justifyContent="space-between">

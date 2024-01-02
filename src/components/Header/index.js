@@ -20,7 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { logo, logo2 } from '../../constants/Images';
 import { headerColor, primaryColor, textColor, textSecondaryColor } from '../../constants/Colors';
 import { fontFamily } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context';
 import ScrollToHide01 from '../../utils/ScrollToHide';
 
@@ -88,7 +88,7 @@ export default function Header(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}> 
-      <img src={logo} alt="BHS" style={{ width: "40%", marginTop: "10px" }} />
+      <img src={logo} alt="BHS" style={{ width: "40%", marginTop: "10px" }}  />
       <Divider />
       <List>
         {
@@ -131,7 +131,8 @@ export default function Header(props) {
               <MenuIcon style={{ color: textColor }} />
             </IconButton>
             <Box component="div" sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-              <img src={logo} alt="BHS" style={{ width: "8%" }} />
+            
+              <img src={logo} alt="BHS" style={{ width: "8%" }} onClick={()=>navigate("/")}/>
               {/* <Typography variant="h6" component="div" sx={{ color: primaryColor, fontWeight: "bold", fontSize: "2rem", marginLeft: "10px" }}>
                   BHS
                 </Typography> */}

@@ -8,7 +8,9 @@ import { Search, Sell, Translate } from "@mui/icons-material";
 import { primaryColor } from "../../../constants/Colors";
 import HeroCompanyCard from "./HeroCompanyCards";
 import "../../../styles/main.css"
-import Image from "../../../assets/business-women-removebg-preview.png"
+import Image from "../../../assets/vector.png"
+import NewImage from "../../../assets/new.png"
+import Partners from "../../../containers/Dashboard/Candidate/components/Partners"
 
 import { loginImage,registerImage } from "../../../constants/Images";
 
@@ -173,7 +175,7 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                </div>
              </div>
            </div>
-           <div className="hero-section2 text-center mb-5" style={{marginTop:"-4rem"}}>
+           <div className="hero-section2 text-center mb-5" style={{marginTop:"1rem"}}>
              <div className="container">
                <div className="row d-flex justify-content-center align-items-center">
                    <div className="col-md-6">
@@ -253,33 +255,12 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                    </div>
                    <div className="col-md-6">
                    <div className="login__image">
-                      <img src={registerImage} alt={registerImage} className="img-fluid w-90"/>
+                      <img src={NewImage} alt={NewImage} className="img-fluid w-90"/>
                     </div>
                  
                    </div>
                </div>
              </div>
-           </div>
-
-                   <div className="extra-section mx-auto d-none">
-            <div className="container">
-            <div className="row d-flex justify-content-center align-items-center">
-              <div className="col-md-6">
-                 <div className="extra-image">
-                   <img src={Image} alt="business women"/>
-                 </div>
-              </div>
-              <div className="col-md-6">
-                <div className="extra-content text-start">
-
-
-            
-                  <p> <h1>Experience seamless recruitment with our platform's user-friendly job posting feature: 
-                  </h1>Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!</p>
-                </div>
-              </div>
-            </div>
-            </div>
            </div>
            <div className="hero-section text-center" >
              <div className="container">
@@ -294,7 +275,7 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                             
                             <p className="intro-desc  text-start ">
                           <h1> Experience seamless recruitment with our platform's user-friendly job posting feature. </h1>
-                             Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!
+                             <span className="intro-desc  text-start mb-3">Showcase your company's opportunities to a diverse pool of talent by leveraging our intuitive platform. Craft personalized job postings with ease, utilizing our tools. Elevate your hiring process and attract top candidates effortlessly. Unlock the power to connect with the right talent and build your dream team. Simplify your recruitment journey - post your job today and open doors to a world of possibilities!</span>
                             </p>
                            
                         </div>
@@ -382,8 +363,8 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                 </Grid> */}
             </Grid>
             <Container maxWidth="xl">
-                <Grid container spacing={2} marginTop={2} sx={{ display: { xs: 'none', md: 'flex' }, position: "absolute", bottom: "-140px", left: "0px", right: "0px", width: "80%", margin: "0 auto" }}>
-                    {
+                    <Partners/>
+                    {/* {
                         compnayData.map((item, index) => {
                             return (
                                 <Grid item xs={12} md={2} key={index}>
@@ -391,8 +372,7 @@ const Hero = ({ jobDescriptionData, searchValue, setSearchValue, handleSearchVal
                                 </Grid>
                             )
                         })
-                    }
-                </Grid>
+                    } */}
             </Container>
         </Box>
     );

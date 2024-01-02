@@ -3,7 +3,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { useLayoutEffect, useState } from "react";
 import All from "./All";
 import useStyles from "../../../styles";
-import { headerColor } from "../../../constants/Colors";
+import { headerColor, secondaryColor } from "../../../constants/Colors";
 import { getJobByType } from "../../../services/Jobs";
 
 
@@ -70,14 +70,14 @@ const FilterTabs = () => {
   // ]
 
   return (
-    <Box component="div" sx={{ marginTop: "180px" }}>
+    <Box component="div" sx={{ marginTop: "80px" }}>
 
       <TabContext value={value}>
 
         <AppBar
           position="static"
           style={{
-            backgroundColor: headerColor,
+            backgroundColor: secondaryColor,
             color: "black",
             boxShadow: "none",
           }}

@@ -17,6 +17,8 @@ const JobsCard = ({ job, handleAddFavourite, handleRemoveFavourite, handleApplyJ
         setSelectedJob(job[0])
     }, [job])
 
+
+    console.log(scrollPosition,"scrollPosition");
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
@@ -120,12 +122,10 @@ const JobsCard = ({ job, handleAddFavourite, handleRemoveFavourite, handleApplyJ
                     }
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ position: "relative", display: { xs: 'none', md: "block" } }}>
-                    <Box component="div"
-                        // position={scrollPosition > 100 ? "fixed" : "sticky"}
-                        // top={110}
-                        // right={60}
-                        width="100%"
-                        // width={scrollPosition > 300 ? "45%" : "100%"}
+                    <Box  component="div"
+                        position={scrollPosition > 300 ? "sticky" : "sticky"}
+                        top={110}
+                        width={scrollPosition > 300 ? "100%" : "100%"}
                         sx={{ cursor: "default !important", transition: "all 0.3s step-start" }} className={classes.jobCardContainer}>
                         <Box component="div" sx={{ borderBottom: `3px solid ${textColor}`, paddingBottom: "20px" }}>
                             <Box component="div">
@@ -164,7 +164,7 @@ const JobsCard = ({ job, handleAddFavourite, handleRemoveFavourite, handleApplyJ
                                 </Box>
                             </Box>
                         </Box>
-                        <Box component="div" sx={{ height: "750px", overflowY: "scroll", padding: "20px" }}>
+                        <Box component="div" sx={{ height: "720px", overflowY: "scroll", padding: "20px" }}>
                             <Box component="div" sx={{ borderBottom: `1px solid ${textColor}`, paddingBottom: "20px" }}>
 
                                 <Typography sx={{ fontSize: "22px !important", fontWeight: "600 !important" }} variant="h1" className={classes.heroHeading}>

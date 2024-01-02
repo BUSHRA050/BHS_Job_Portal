@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material"
 import useStyles from "../../../styles"
 import PlanCard from "./PlanCard"
+import { secondaryColor } from "../../../constants/Colors"
 
 const PricingPlan = ({ user, handleSelectPlan }) => {
     const classes = useStyles()
@@ -39,7 +40,7 @@ const PricingPlan = ({ user, handleSelectPlan }) => {
     ]
 
     return (
-        <Box component="div" sx={{ marginTop: "4rem", background: "#f8f9fa", padding: "20px" }}>
+        <Box component="div" sx={{ marginTop: "4rem", background: secondaryColor, padding: "20px" }}>
             <Box component="div" sx={{ textAlign: "center" }}>
                 <Typography variant="h1" sx={{ fontSize: "40px !important" }}>
                     Choose Pricing Plan
